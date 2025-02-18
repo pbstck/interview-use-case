@@ -1,0 +1,11 @@
+{
+  "name": "interview-use-case",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "(cd script && pnpm install); (cd server && pnpm install)"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

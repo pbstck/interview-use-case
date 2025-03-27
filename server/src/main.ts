@@ -7,15 +7,13 @@ import cors from 'cors';
 const app: Express = express();
 const port = 3000;
 
-const router = express.Router();
-
 const servicePack = {
   configResolverService: new ConfigResolverService(),
 }
 
-router.use('/context', ContextResource(servicePack)).use('/status', HealthCheckResource);
 app.use(cors())
-app.use('/api', router);
+app.use('/status', HealthCheckResource)
+app.use('/api', ContextResource(servicePack));
 app.listen(port, () => {
   console.log(`Api server is running on port ${port}`);
 });

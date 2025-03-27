@@ -1,5 +1,5 @@
-import { RequestHandler, Router } from "express";
-import { ConfigResolverService } from "../service/configResolver";
+import {RequestHandler, Router} from "express";
+import {ConfigResolverService} from "../service/configResolver";
 
 const siteHandler = (configService: ConfigResolverService): RequestHandler => (req, res) => {
   const {sitename} = req.params;
@@ -11,4 +11,6 @@ const siteHandler = (configService: ConfigResolverService): RequestHandler => (r
   res.json(config);
 }
 
-export const ContextResource = ({configResolverService}: {configResolverService: ConfigResolverService}) => Router().get('/config/:sitename', siteHandler(configResolverService));
+export const ContextResource = ({configResolverService}: {
+  configResolverService: ConfigResolverService
+}) => Router().get('/config/:sitename', siteHandler(configResolverService));
